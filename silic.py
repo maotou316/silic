@@ -516,7 +516,7 @@ def browser(source, model='', step=1000, targetclasses='', conf_thres=0.1, savep
       newlabels = clean_multi_boxes(labels)
       newlabels['file'] = model.audiofilename
 
-      # 偵測檔名，依檔名判斷日期與時間
+      #! 偵測檔名，依檔名判斷日期與時間
       fileName = model.audiofilename[:15]
       pattern = r'^\d{8}_\d{6}$'
       if re.match(pattern, fileName):
@@ -556,7 +556,7 @@ def browser(source, model='', step=1000, targetclasses='', conf_thres=0.1, savep
     
     if zip:
         shutil.make_archive('result_silic', 'zip', result_path)
-        print('Finished. The browser package is compressed and named result.zip')
+        print('Finished. The browser package is compressed and named result_silic.zip')
     else:
         print('Finished. All results were saved in the folder %s' %result_path)
     print(time.time()-t0, 'used.')
