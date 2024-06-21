@@ -18,7 +18,11 @@ SILIC(Sound Identification and Labeling Intelligence for Creatures) 是一個由
     - 安裝[Microsoft C++ Build Tools](https://visualstudio.microsoft.com/zh-hant/visual-cpp-build-tools/)
     - pip install -r requirements.txt
 
+
+
+
 - 執行silic.bat檔
+
 
 
 ## 更新記錄

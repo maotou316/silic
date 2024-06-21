@@ -89,3 +89,4 @@ wcwidth==0.2.6
 Werkzeug==2.2.3
 wget==3.2
 yolov5==7.0.11
+
