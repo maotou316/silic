@@ -12,6 +12,10 @@ from yolov5.utils.dataloaders import letterbox
 from yolov5.utils.general import non_max_suppression, scale_boxes, xyxy2xywh
 from PIL import ImageFont, ImageDraw, Image
 
+# 偵測檔名，依檔名判斷日期與時間
+import re
+from datetime import datetime, timedelta
+
 def speed_change(sound, speed=1.0):
     # Manually override the frame_rate. This tells the computer how many
     # samples to play per second
@@ -574,6 +578,17 @@ def browser(source, model='', step=1000, targetclasses='', conf_thres=0.1, savep
     else:
       newlabels = clean_multi_boxes(audiofile, labels)
       newlabels['file'] = model.audiofilename
+
+      # 偵測檔名，依檔名判斷日期與時間
+      fileName = model.audiofilename[:15]
+      pattern = r'^\d{8}_\d{6}$'
+      if re.match(pattern, fileName):
+        newlabels['錄製日期'] = datetime.strptime(model.audiofilename[:8], "%Y%m%d")
+        newlabels['開始時間'] = datetime.strptime(model.audiofilename[:15], "%Y%m%d_%H%M%S") + newlabels['time_begin'].apply(lambda x: timedelta(milliseconds=x))
+        newlabels['結束時間'] = datetime.strptime(model.audiofilename[:15], "%Y%m%d_%H%M%S") + newlabels['time_end'].apply(lambda x: timedelta(milliseconds=x))
+
+
+
       newlabels.to_csv(os.path.join(lable_path, model.audiofilename_without_ext+'.csv'), index=False, encoding='utf-8-sig')
       if all_labels.shape[0] > 0:
         all_labels = pd.concat([all_labels, newlabels],axis=0, ignore_index=True) 
