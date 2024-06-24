@@ -1,1 +1,1 @@
-@python silic-ui.py
+python silic-ui.py
