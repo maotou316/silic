@@ -16,19 +16,12 @@ SILIC(Sound Identification and Labeling Intelligence for Creatures) 是一個由
     - 安裝[python](https://www.python.org/downloads/)
     - 安裝[FFmpeg](https://www.ffmpeg.org/download.html)
     - 安裝[Microsoft C++ Build Tools](https://visualstudio.microsoft.com/zh-hant/visual-cpp-build-tools/)
-    - pip install -r requirements.txt
-
-
-
-
-- 執行silic.bat檔
-
-
+    - 執行 run.ipynb
 
 ## 更新記錄
 
 ### 2023/05/11
-- 更新內核為原作者20230503發佈之版本，作者的ui介面太棒了！
+- 更新內核為原作者20230503發佈之版本，原作者的ui介面太棒了！
 - 修正CSV檔直接用excel開啟時亂碼問題
 - 整合silic-bat model
 - 加入bat檔，讓使用者可以免打Code開始執行
